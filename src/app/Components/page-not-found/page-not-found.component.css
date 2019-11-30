@@ -1,0 +1,26 @@
+@media (min-width:768px)  {
+    #contents {
+        color: #000000; font-family: 'Lato', sans-serif; font-size: 45px; font-weight: 300;
+    }
+    .img-thumbnail {
+        max-width: 60% !important;
+    }
+}
+
+@media (max-width:768px)  {
+    #contents {
+        color: #000000; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; padding-right: 0px !important;
+    }
+}
+
+.img-thumbnail {
+    border: 0 !important;
+}
+
+.btn {
+    border: 2px solid rgba(91, 192, 222, 0.75) !important;
+    border-radius: 45px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+

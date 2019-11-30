@@ -1,0 +1,28 @@
+<section #signup>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h2>Sign up</h2>
+            <div class="login mt-5">
+                <form>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" placeholder="Enter Mobile No." [(ngModel)]="email">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="password" placeholder="Enter Password" [(ngModel)]="password">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="btn btn-info" (click)="sendOTP()">Send OTP</button>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <button class="btn btn-info" (click)="signOut()">Sign OUT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
