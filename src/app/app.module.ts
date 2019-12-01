@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,17 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HomeComponent } from './Components/home/home.component';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBDmTfk0uuglgbKyPduNF2muxWQCq_Ocbc",
-  authDomain: "expensemanager13.firebaseapp.com",
-  databaseURL: "https://expensemanager13.firebaseio.com",
-  projectId: "expensemanager13",
-  storageBucket: "expensemanager13.appspot.com",
-  messagingSenderId: "785359625790",
-  appId: "1:785359625790:web:152ea396b947c057193b6f",
-  measurementId: "G-VTZKYWVJZH"
-};
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,14 +25,17 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

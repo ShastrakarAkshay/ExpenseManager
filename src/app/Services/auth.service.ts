@@ -18,35 +18,17 @@ export class AuthService {
   SendVerificationMail() {
     return this.angularAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
-        // this.router.navigate(['home']);
       })
   }
 
   // Sign up with email/password
   SignUp(email, password) {
-    return this.angularAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SendVerificationMail(); // Sending email verification notification, when new user registers
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+    return this.angularAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
   // Sign in with email/password
   SignIn(email, password) {
-    return this.angularAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        if (result.user.emailVerified !== true) {
-          this.SendVerificationMail();
-          this.snackBar.open('Please Verify Your Email. Kindly check your inbox.')
-        } else {
-          this.ngZone.run(() => {
-            this.router.navigate(['home']);
-          });
-        }
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+    return this.angularAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   isLoggedIn() {
@@ -67,7 +49,6 @@ export class AuthService {
   resetPassword(email: string) {
     var auth = this.angularAuth.auth;
     return auth.sendPasswordResetEmail(email)
-      .then(() => this.snackBar.open('Password Reset email sent!'))
       .catch((error) => console.log(error))
   }
 

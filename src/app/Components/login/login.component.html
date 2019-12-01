@@ -1,25 +1,65 @@
-<section #signup>
+<section>
+    <div class="container-fluid mt-3">
+        <div class="jumbotron text-center">
+            <h4>Expense Manger</h4>
+        </div>
+    </div>
+</section>
+
+<section #signup hidden>
     <div class="container mt-5">
         <div class="text-center">
             <h2>Sign up</h2>
             <div class="login mt-5">
-                <form>
+                <form [formGroup]="signupForm">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="email" placeholder="Enter Mobile No." [(ngModel)]="email">
+                            <input type="email" class="form-control" name="email" placeholder="Enter Email" formControlName="email">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="password" placeholder="Enter Password" [(ngModel)]="password">
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password" formControlName="password">
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <button class="btn btn-info" (click)="sendOTP()">Send OTP</button>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="confirmPassword" placeholder="Enter Password" formControlName="confirmPassword">
+                        </div>
                     </div>
+                    <div class="col-sm-12">
+                        <button class="button" (click)="signUp()">Sign up</button>
+                    </div>
+                    <div class="col-sm-12 mt-5">
+                        <p>Have already an account? <a class="text-primary" (click)="toggleForm()">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section #signin>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h2>Sign in</h2>
+            <div class="logout mt-5">
+                <form [formGroup]="signinForm">
                     <div class="col-sm-12">
-                        <button class="btn btn-info" (click)="signOut()">Sign OUT</button>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Enter Email" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password" formControlName="password">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="button" (click)="signIn()">Sign in</button>
+                    </div>
+                    <div class="col-sm-12 mt-5">
+                        <p>Create an account? <a class="text-primary" (click)="toggleForm()">Sign up</a></p>
                     </div>
                 </form>
             </div>
